@@ -1,23 +1,21 @@
 public class TestBlockchain {
 
-	public static void main(String args[]) {
+	public static void main(String args[]) 
+        {
 		
-		Blockchain tcpCoin = new Blockchain();
+		Blockchain gpCoin = new Blockchain();
 		
 		Block a = new Block("0x200", new java.util.Date(), "<transactions>");
 		Block b = new Block("0x200", new java.util.Date(), "<transactions>");
 		Block c = new Block("0x200", new java.util.Date(), "<transactions>");
 		
-		tcpCoin.blockEkle(a);
-		tcpCoin.blockEkle(b);
-		tcpCoin.blockEkle(c);
+		gpCoin.blockEkle(a);
+		gpCoin.blockEkle(b);
+		gpCoin.blockEkle(c);				
 		
-		//tcpCoin.getLatestBlock().setPreviousHash("ABCDEFG");
+		gpCoin.displayChain();
 		
-		tcpCoin.displayChain();
-		
-		tcpCoin.isValid();
+		gpCoin.isValid();
 
-	}
-	
+	}	
 }

@@ -4,7 +4,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.Date;
 
-public class Block {
+public class Block 
+{
 
 	private String version;
 	private Date Timestamp;
@@ -12,25 +13,30 @@ public class Block {
 	private String previousHash;
 	private String data;
 	
-	public Block(String version, Date timestamp, String data) {
+	public Block(String version, Date timestamp, String data) 
+        {
 		this.version = version;
 		this.Timestamp = timestamp;
 		this.data = data;
 		this.hash = Hashle();
 	}
 	
-	public String Hashle() {
+	public String Hashle() 
+        {
 		
 		String dataToHash = "" + this.version + this.Timestamp + this.previousHash + this.data;
 		
 		MessageDigest digest;
 		String encoded = null;
 		
-		try {
+		try 
+                {
 			digest = MessageDigest.getInstance("SHA-256");
 			byte[] hash = digest.digest(dataToHash.getBytes(StandardCharsets.UTF_8));
 			encoded = Base64.getEncoder().encodeToString(hash);
-		} catch (NoSuchAlgorithmException e) {
+		} 
+                catch (NoSuchAlgorithmException e) 
+                {
 			e.printStackTrace();
 		}
 		
@@ -39,46 +45,53 @@ public class Block {
 		
 	}
 
-	public String getVersion() {
+	public String getVersion() 
+        {
 		return version;
 	}
 
-	public void setVersion(String version) {
+	public void setVersion(String version) 
+        {
 		this.version = version;
 	}
 
-	public Date getTimestamp() {
+	public Date getTimestamp() 
+        {
 		return Timestamp;
 	}
 
-	public void setTimestamp(Date timestamp) {
+	public void setTimestamp(Date timestamp) 
+        {
 		Timestamp = timestamp;
 	}
 
-	public String getHash() {
+	public String getHash() 
+        {
 		return hash;
 	}
 
-	public void setHash(String hash) {
+	public void setHash(String hash) 
+        {
 		this.hash = hash;
 	}
 
-	public String getPreviousHash() {
+	public String getPreviousHash() 
+        {
 		return previousHash;
 	}
 
-	public void setPreviousHash(String previousHash) {
+	public void setPreviousHash(String previousHash) 
+        {
 		this.previousHash = previousHash;
 	}
 
-	public String getData() {
+	public String getData() 
+        {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(String data) 
+        {
 		this.data = data;
-	}
-	
-	
-	
+	}			
 }
